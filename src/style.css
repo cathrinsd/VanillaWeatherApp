@@ -17,6 +17,11 @@ margin: 20px auto;
     border-color: #bdc1c6;
 }
 
+form {
+    padding-bottom: 15px;
+     border-color: #bdc1c6;
+}
+
 h1 {
     color:#878787;
     font-size: 24px;

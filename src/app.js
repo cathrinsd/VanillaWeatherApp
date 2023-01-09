@@ -6,13 +6,12 @@ function displayTemperature(response) {
    temperatureElement.innerHTML =`${temperature}`;
    let description = document.querySelector("#weather-description");
   description.innerHTML = response.data.condition.description;
-let cityElement = document.querySelector("#city");
-  cityElement.innerHTML = response.data.city;
+   let cityElement = document.querySelector("#city");
+    cityElement.innerHTML = response.data.city;
   let windElement = document.querySelector("#windSpeed");
   windElement.innerHTML = Math.round(response.data.wind.speed);
 let humidityElement = document.querySelector("#humidity");
 humidityElement.innerHTML = response.data.temperature.humidity;
-
 let iconElement = document.querySelector("#icon");
 iconElement.setAttribute(
   "src",
@@ -46,8 +45,22 @@ iconElement.setAttribute(
   dateElement.innerHTML = `${day}, ${hours}:${minutes} ${am_pm}`;
 
 
-let apiKey = "3oed67abe28tbf31a403d1a6050a989a";
-let city = "Lisbon";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
+
+
+function search(city) {
+let apiKey = "3oed67abe28tbf31a403d1a6050a989a";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayTemperature);
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#cityInput");
+    search(cityInputElement.value);
+    
+}
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+search("New York");
