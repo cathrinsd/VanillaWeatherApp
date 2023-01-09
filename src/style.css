@@ -63,5 +63,13 @@ li:first-letter {
     padding-left: 6px;
 vertical-align: top;
 font-weight: 400;
+}
+
+.weather-temperature .active {
+   color:#878787;
+cursor: default;
 text-decoration: none;
+}
+.weather-temperature .active:hover {
+    text-decoration: none;
 }
