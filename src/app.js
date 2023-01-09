@@ -13,14 +13,13 @@ let cityElement = document.querySelector("#city");
 let humidityElement = document.querySelector("#humidity");
 humidityElement.innerHTML = response.data.temperature.humidity;
 
+let iconElement = document.querySelector("#icon");
+iconElement.setAttribute(
+  "src",
+  `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+);
+  iconElement.setAttribute("alt", response.data.condition.description);
 }
-
-let apiKey = "3oed67abe28tbf31a403d1a6050a989a";
-let city = "New York";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-
-axios.get(apiUrl).then(displayTemperature);
-
 
   let now = new Date();
   let days = [
@@ -47,3 +46,8 @@ axios.get(apiUrl).then(displayTemperature);
   dateElement.innerHTML = `${day}, ${hours}:${minutes} ${am_pm}`;
 
 
+let apiKey = "3oed67abe28tbf31a403d1a6050a989a";
+let city = "Lisbon";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
+axios.get(apiUrl).then(displayTemperature);
