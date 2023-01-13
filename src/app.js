@@ -46,14 +46,14 @@ let forecastHTML = `<div class="row">`;
                 )}
                 </div>
                <img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
-                 forecastDay[0].data.condition.icon
+                 forecastDay.condition.icon
                }.png" alt=""/>
               <div class="weather-forecast-temperature">
                 <span class="weather-forecast-temp-max">${
-                  forecastDay.temperature.maximum
+                  Math.round(forecastDay.temperature.maximum)
                 }°</span>
                  <span class="weather-forecast-temp-min">${
-                   forecastDay.temperature.minimum
+                   Math.round(forecastDay.temperature.minimum)
                  }°</span>
                  </div>
             </div>`;
